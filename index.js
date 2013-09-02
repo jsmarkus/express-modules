@@ -16,7 +16,7 @@ function hook (method/*, args*/) {
     var app = this;
     this._modules.forEach(function(mod) {
         if('function' === typeof(mod[method])) {
-            mod[method].apply(app, args);
+            mod[method].call(mod, app, args);
         }
     });
 }
